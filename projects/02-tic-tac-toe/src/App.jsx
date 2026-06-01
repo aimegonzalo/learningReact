@@ -63,6 +63,7 @@ function App() {
     setTurn(newTurn);
 
     //guardar la partida
+
     window.localStorage.setItem("board", JSON.stringify(newBoard));
     window.localStorage.setItem("turn", newTurn);
 
