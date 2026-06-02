@@ -3,4 +3,3 @@ export const TURNS = {
   Blue: "🔵",
 };
 
-export const WINNER_COMBOS = [[], [], [], [], [], []];

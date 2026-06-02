@@ -1,7 +1,12 @@
-export function Square(props) {
+export const Square = ({children, updateBoard, index,}) =>{
+  const handleClick = () =>{
+    updateBoard(index);
+  }
   return (
-    <div className="w-16 h-14 border rounded-xl border-white">
-      {props.index}
+    <div onClick={handleClick} className="w-16 h-14 border rounded-xl border-white flex justify-center text-5xl">
+    {children}
     </div>
   )
 }
+
+
