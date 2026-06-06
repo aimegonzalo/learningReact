@@ -1,6 +1,5 @@
 import "./App.css";
 import { Board } from "./components/Board";
-import { ResetButton } from "./components/ResetButton";
 import { Turns } from "./components/Turns";
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
           <h1 className="title text-4xl font-bold text-white tracking-wide drop-shadow-lg pb-10">
             4 en línea
           </h1>
-          <ResetButton />
         </section>
         <Board />
         <Turns />

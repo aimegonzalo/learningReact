@@ -6,6 +6,9 @@ import {
   checkEndGame,
   fillDownSquares,
 } from "../Logic/checkGameStatus";
+import { ResetButton } from "./ResetButton";
+import { WinnerModal } from "./WinnerModal";
+import confetti from "canvas-confetti";
 
 export function Board() {
   const [board, setBoard] = useState(Array(42).fill(null));
@@ -28,28 +31,38 @@ export function Board() {
     const newTurn = turn === TURNS.red ? TURNS.Blue : TURNS.red;
     setTurn(newTurn);
 
-    // funcion para comprobar las casillas de abajo
-    
-    
-
     //chequear jugadas
     const newWinner = checkWinner(newBoard);
     if (newWinner) {
-      alert("wiii"); //CAMBIAR A CONFETTI
+      confetti();
+      setWinner(newWinner);
     } else if (checkEndGame(newBoard)) {
       setWinner(false); //significa empate
     }
   };
 
   return (
-    <div className="grid grid-cols-7 gap-0.5 p-30">
-      {board.map((square, index) => {
-        return (
-          <Square updateBoard={updateBoard} key={index} index={index}>
-            {square}
-          </Square>
-        );
-      })}
-    </div>
+    <>
+      <ResetButton
+        setBoard={setBoard}
+        setTurn={setTurn}
+        setWinner={setWinner}
+      />
+      <div className="grid grid-cols-7 gap-0.5 p-30">
+        {board.map((square, index) => {
+          return (
+            <Square updateBoard={updateBoard} key={index} index={index}>
+              {square}
+            </Square>
+          );
+        })}
+      </div>
+      <WinnerModal
+        setBoard={setBoard}
+        setTurn={setTurn}
+        setWinner={setWinner}
+        winner={winner}
+      />
+    </>
   );
 }
