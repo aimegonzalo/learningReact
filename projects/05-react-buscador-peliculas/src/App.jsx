@@ -1,6 +1,7 @@
 import "./App.css";
 import { Movies } from "./components/Movies";
 import { useRef, useState } from "react";
+import { mappedMovies } from "./Functions/mappedMovies";
 
 function App() {
   const [movies, setMovies] = useState();
@@ -16,26 +17,12 @@ function App() {
       });
   }
 
-  //   .then(response => response.json())
-  // .then(data => console.log(data));
-
-  const mappedMovies = (movies) => {
-    const mappedMovies = movies?.map((movie) => ({
-      id: movie.imdbID,
-      title: movie.Title,
-      year: movie.Year,
-      poster: movie.Poster,
-    }));
-    return mappedMovies;
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const value = inputRef.current.value;
     fetchMovies(value);
   };
   
-console.log(mappedMovies(movies))
   return (
     <>
       <div className="page">
