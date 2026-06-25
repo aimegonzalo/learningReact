@@ -1,7 +1,10 @@
 .page{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 800px;
 }
 
 .header{
@@ -13,11 +16,27 @@
 .moviesForm{
   display: flex;
   align-items: center;
-  margin: 10px;
 }
 
 .searchResults{
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.movies{
+  padding: 0;
+  margin: 0;
+  display:grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.movie h3{
+  padding: 0;
+}
+
+.movie img{
+  border-radius: 8px;
 }
